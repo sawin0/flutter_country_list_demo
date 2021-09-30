@@ -15,6 +15,9 @@ class CountryProvider extends ChangeNotifier {
     _countryData = await countriesDao.getAllCountries();
     if (_countryData.isEmpty) {
       _countryData = await CountriesApi.fetchCountriesData();
+      _countryData.forEach((country) {
+        countriesDao.insertCountry(country);
+      });
     }
     notifyListeners();
   }

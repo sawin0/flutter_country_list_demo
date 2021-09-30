@@ -13,6 +13,7 @@ class CountriesApi {
       var result = jsonDecode(response.body);
       result.forEach((data) {
         var country = Country.fromJson(data);
+
         countryList.add(country);
       });
     } catch (e) {
