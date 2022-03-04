@@ -24,12 +24,10 @@ jobs:
 
       - run: flutter clean
 
-      - run: flutter build apk --obfuscate --split-debug-info=./ --release
-
-      - run: mv app-release.apk demo.apk
+      - run: flutter build apk
 
       - uses: actions/upload-artifact@v2.2.0
         with:
           name: demo
-          path: ./build/app/outputs/flutter-apk/demo.apk
+          path: ./build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: error
